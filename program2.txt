@@ -1,0 +1,123 @@
+; Brandon Sandoval
+; Name: "program2.txt"
+; Description:Write a program which will perform the following operations,
+             ;store each result in a separate memory address and display each value.
+             ;This program must use every instruction available, 
+             ;     with the exception of jump and jumpz.
+            ;A9 + 2B
+            ;A9 - 2B
+            ;A9 AND 2B
+            ;A9 OR 2B
+            ;ASHR A9
+            ;AF + 1
+            ;NOT D1
+
+
+JMP start
+
+;Variables
+varA: A9 ; Hex A9 = 169
+varB: 2B ; Hex 2B = 43
+varC: AF ; Hex AF = 175
+varD: D1 ; Hex D1 = 209
+
+;Variables used to store the results of the operations
+OpOne: 0
+OpTwo: 0
+OpThree: 0
+OpFour: 0
+OpFive: 0
+OpSix: 0
+OpSeven: 0
+
+;-----------------------------------
+
+start: ; JMP statement starts here
+
+;A9 - 2B = D4
+LDAC varB 
+MVAC
+LDAC varA
+ADD
+STAC OpOne
+
+CLAC
+
+;-----------------------------------
+;A9 - 2B = 7E
+MOVR
+MVAC
+LDAC varA
+SUB
+STAC OpTwo
+
+CLAC
+
+;-----------------------------------
+;A9 AND 2B = 29
+MOVR
+MVAC
+LDAC varA
+AND
+STAC OpThree
+
+CLAC
+
+;-----------------------------------
+;A9 OR 2B = AB
+LDAC varB
+MVAC
+LDAC varA
+OR
+STAC OpFour
+
+CLAC
+
+;-----------------------------------
+;ASHR A9 = 54
+LDAC varA
+ASHR
+STAC OpFive
+
+CLAC
+
+;-----------------------------------
+;AF + 1 = B0
+LDAC varC
+INC
+STAC OpSix
+    
+CLAC
+
+;-----------------------------------
+;NOT D1 = FF2E
+LDAC varD
+NOT
+STAC OpSeven
+
+CLAC
+
+;-----------------------------------
+;Displays all the results from the operations
+LDAC OpOne ;D4
+OUT
+
+LDAC OpTwo ;7E
+OUT
+
+LDAC OpThree ;29
+OUT
+
+LDAC OpFour ;AB
+OUT
+
+LDAC OpFive ;54
+OUT
+
+LDAC OpSix ;B0
+OUT
+
+LDAC OpSeven ;FF2E
+OUT
+
+HALT ;Stops the program

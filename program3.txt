@@ -1,0 +1,40 @@
+;Name: Brandon Sandoval
+;Class: CSCI 3130-001
+;Instructor: Arpan Sainju
+;Date: 12/1/22
+;Description:Sum of Number 1 to N
+
+
+JMP start
+; Variables
+
+end: C   ;Test number is C, in Hex, or 12, in Decimal
+sub1: 1  ;Subtracts the end number by 1
+sum: 0   ;Used as a sum variable (Answer should be 4E)
+
+
+start:
+
+
+;Loads the N number and adds it to sum
+LDAC end
+MVAC
+LDAC sum
+ADD
+STAC sum      ;Store the answer of ACC to sum
+
+;Subtract the N number by 1
+LDAC sub1
+MVAC
+LDAC end
+SUB
+OUT           ;Used as a visual timer till answer
+STAC end      ;Stores new N-1 number to end
+JMPZ finished ;if Z=1, then exit loop
+JMP start     ;Jumps to "start" to start loop
+
+;Loads the sum into ACC and displays
+finished:
+LDAC sum      
+OUT
+HALT          ; Stop execution

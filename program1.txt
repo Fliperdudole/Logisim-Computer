@@ -1,0 +1,16 @@
+; Brandon Sandoval
+; Name: "program1.txt"
+; Description: Write a program which will subtract A from F
+;              (hexadecimal) and display the output.
+
+JMP start
+;Variables
+varA: A ; Hex A = 10
+varF: F ; Hex F = 15
+start: ; JMP statement starts here
+LDAC varA ;Variable A is loaded into the AC
+MVAC ;Variable A is moved into the R register
+LDAC varF ;Variable F is loaded into the AC
+SUB ; AC=F-A
+OUT ;Value of the AC is moved to OUT
+HALT ;Stops the program
