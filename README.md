@@ -2,7 +2,7 @@
 This is a computer made from scratch using logisim, circuits, wires, gates and also includes code to use for the computer
 
 
-# How to use
+# How to Use
 - Download Logism: http://www.cburch.com/logisim/
 - Load the "RSC.circ" file
 - Logism may ask to load in additional files such as "custom_reg.circ" and "PLDs.circ"
